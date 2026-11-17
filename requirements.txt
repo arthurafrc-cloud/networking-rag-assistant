@@ -1,0 +1,23 @@
+# Bibliotecas do projeto. Para instalar tudo de uma vez:
+#   pip install -r requirements.txt
+
+# SDK atual do Gemini (substitui a antiga "google-generativeai", que foi descontinuada)
+google-genai
+
+# LangChain dividido em pacotes menores (nas versões novas os imports mudaram de lugar)
+langchain
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+
+# Gera os embeddings (texto -> números) rodando no seu próprio computador
+sentence-transformers
+
+# Banco vetorial
+faiss-cpu
+
+# Lê arquivos PDF
+pypdf
+
+# Interface web do chat
+streamlit

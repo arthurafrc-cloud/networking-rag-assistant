@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa do repositório</title>
+<style>
+  :root {
+    --tinta: #10283F; --tinta-claro: #1B3A5C; --laranja: #F28A1E; --verde: #2F7D52;
+    --serif: "Lora", Georgia, "Times New Roman", serif;
+    --sans: "Inter", "Segoe UI", system-ui, Arial, sans-serif;
+    --mono: "DejaVu Sans Mono", Consolas, "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  #capa {
+    width: 1280px; height: 640px; background: var(--tinta); color: #EAF0F6;
+    position: relative; overflow: hidden; font-family: var(--sans); padding: 72px 80px;
+  }
+  .selo { font-size: 24px; color: #9FB3C8; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: 70px; line-height: 1.06; letter-spacing: -0.012em; margin: 26px 0 0; width: 640px; }
+  .sub { font-size: 27px; line-height: 1.38; color: #C7D4E2; margin-top: 26px; width: 600px; }
+  .tec { position: absolute; left: 80px; bottom: 60px; font-family: var(--mono); font-size: 23px; color: #9FB3C8; }
+  .pagina {
+    position: absolute; right: 100px; top: 120px; width: 400px; background: #F7F9FB; border-radius: 10px;
+    padding: 30px 32px 22px; transform: rotate(-2deg);
+  }
+  .pagina i { display: block; height: 10px; background: #CBD3DC; border-radius: 5px; margin-bottom: 14px; }
+  .pagina .trecho { background: rgba(242,138,30,0.42); margin: 4px -12px 18px; padding: 12px 12px 1px; border-radius: 4px; }
+  .pagina .trecho i { background: #5E6F80; }
+  .pagina .etiqueta {
+    position: absolute; right: -24px; top: 112px; background: var(--verde); color: #fff;
+    font-family: var(--mono); font-size: 19px; padding: 9px 13px; border-radius: 5px; transform: rotate(2deg);
+  }
+</style>
+</head>
+<body>
+<div id="capa">
+  <div class="selo">Projeto independente de estudo</div>
+  <h1>Assistente de estudos de Redes com RAG</h1>
+  <div class="sub">Busca os trechos certos em PDFs técnicos antes de responder e mostra as páginas usadas.</div>
+  <div class="pagina" aria-hidden="true">
+    <i style="width:94%"></i><i style="width:88%"></i><i style="width:96%"></i>
+    <div class="trecho"><i style="width:98%"></i><i style="width:91%"></i><i style="width:60%"></i></div>
+    <i style="width:92%"></i><i style="width:85%"></i><i style="width:70%"></i>
+    <div class="etiqueta">[arquivo.pdf, página N]</div>
+  </div>
+  <div class="tec">Python, Gemini, LangChain, FAISS, Streamlit</div>
+</div>
+</body>
+</html>

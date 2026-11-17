@@ -1,0 +1,26 @@
+flowchart TB
+  subgraph IND["Ingestão: python ingestao.py (executada uma vez por material)"]
+    direction LR
+    A["PDFs<br/>em data/"] --> B["pypdf<br/>texto de cada página"]
+    B --> C["RecursiveCharacterTextSplitter<br/>1000 caracteres<br/>sobreposição de 200"]
+    C --> D["Embeddings multilíngues<br/>paraphrase-multilingual<br/>-MiniLM-L12-v2 (local)"]
+    D --> E[("Índice FAISS<br/>vector_db/")]
+  end
+  subgraph CON["Consulta: streamlit run app.py"]
+    direction LR
+    Q["Pergunta<br/>st.text_input"] --> QE["Embedding da pergunta<br/>(mesmo modelo)"]
+    QE --> S["Busca por similaridade<br/>no FAISS, k = 4"]
+    S --> P["Prompt: regras<br/>+ trechos com arquivo e página<br/>+ pergunta"]
+    P --> G["Gemini via API<br/>modelo em config.py"]
+    G --> R["Resposta<br/>+ Fontes consultadas<br/>(trechos recuperados)"]
+  end
+  E -. "índice carregado" .-> S
+
+  classDef offline fill:#EEF2F7,stroke:#475569,color:#0F172A;
+  classDef online fill:#E6F4F1,stroke:#0F766E,color:#0F172A;
+  classDef modelo fill:#FFF4DB,stroke:#B45309,color:#0F172A;
+  class A,B,C,D,E offline;
+  class Q,QE,S,P,R online;
+  class G modelo;
+  style IND fill:#F8FAFC,stroke:#CBD5E1,color:#0F172A
+  style CON fill:#F8FAFC,stroke:#CBD5E1,color:#0F172A
